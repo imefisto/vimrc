@@ -26,18 +26,34 @@ Bundle "mattn/emmet-vim"
 Bundle '2072/PHP-Indenting-for-VIm'
 Bundle 'pangloss/vim-javascript'
 Bundle 'maxmellon/vim-jsx-pretty'
+Bundle 'vim-syntastic/syntastic'
+Bundle 'lervag/vimtex'
 
 " Schema colors
+Bundle "fugalh/desert.vim"
 Bundle "tomasr/molokai"
+Bundle "fcevado/molokai_dark"
 Bundle "sjl/badwolf"
 Bundle "Haron-Prime/Antares"
 Bundle "evgenyzinoviev/vim-vendetta"
+Bundle "mkarmona/colorsbox"
+Bundle "nanotech/jellybeans.vim"
 Bundle "dylanaraps/crayon"
+Bundle "gryftir/gryffin"
 Bundle "trusktr/seti.vim"
+Bundle "znake/znake-vim"
 Bundle "vim-scripts/abbott.vim"
+Bundle "mtglsk/mushroom"
+Bundle "yantze/pt_black"
+Bundle "sickill/vim-sunburst"
+" Bundle "vim-scripts/rdark-terminal"
+" Bundle "guns/jellyx.vim"
+Bundle "trapd00r/neverland-vim-theme"
 Bundle "itchyny/landscape.vim"
 Bundle "Lokaltog/vim-distinguished"
+Bundle "goatslacker/mango.vim"
 Bundle "docteurklein/php-getter-setter.vim"
+Bundle "posva/vim-vue"
  
 if has("gui_running")
 	:colorscheme vendetta
@@ -132,9 +148,10 @@ let g:SuperTabDefaultCompletionType = "context"
 let php_sql_query=1                                                                                        
 let php_htmlInStrings=1
 
+autocmd FileType sql set tabstop=4|set softtabstop=4|set shiftwidth=4|set smarttab|set expandtab
 autocmd FileType python set tabstop=4|set softtabstop=4|set shiftwidth=4|set smarttab|set expandtab
 autocmd FileType py set tabstop=4|set softtabstop=4|set shiftwidth=4|set smarttab|set expandtab
-autocmd FileType yaml set tabstop=4|set softtabstop=4|set shiftwidth=4|set smarttab|set expandtab
+autocmd FileType yaml set tabstop=2|set softtabstop=2|set shiftwidth=2|set smarttab|set expandtab
 autocmd FileType xml set tabstop=2|set softtabstop=2|set shiftwidth=2|set smarttab|set expandtab
 autocmd FileType html set tabstop=2|set softtabstop=2|set shiftwidth=2|set smarttab|set expandtab
 autocmd FileType css set tabstop=2|set softtabstop=2|set shiftwidth=2|set smarttab|set expandtab
@@ -151,6 +168,7 @@ autocmd FileType h++ set tabstop=2|set softtabstop=2|set shiftwidth=2|set smartt
 autocmd FileType hpp set tabstop=2|set softtabstop=2|set shiftwidth=2|set smarttab|set expandtab
 autocmd FileType json set tabstop=2|set softtabstop=2|set shiftwidth=2|set smarttab|set expandtab
 autocmd FileType js set tabstop=2|set softtabstop=2|set shiftwidth=2|set smarttab|set expandtab
+autocmd FileType vue set tabstop=2|set softtabstop=2|set shiftwidth=2|set smarttab|set expandtab
 
 autocmd filetype cpp nnoremap <F4> :!g++ % -ggdb -std=c++11 -o %:r <CR>
 autocmd filetype cpp nnoremap<F5> :!g++ % -ggdb -std=c++11 -o %:r && ./%:r <CR>
@@ -164,3 +182,6 @@ set foldlevelstart=1
 set nofoldenable
 let xml_syntax_folding=1      " XML
 
+" Syntastic
+let g:syntastic_php_checkers=['php', 'phpcs']
+let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
